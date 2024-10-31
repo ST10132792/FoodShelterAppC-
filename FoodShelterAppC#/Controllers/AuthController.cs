@@ -44,9 +44,14 @@ namespace FoodShelterAppC_.Controllers
                 {
                     return RedirectToAction("Index", "Dashboard");
                 }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Invalid password. Please try again.");
+                    return View();
+                }
             }
 
-            ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+            ModelState.AddModelError(string.Empty, "Email not found. Please register if you don't have an account.");
             return View();
         }
 
@@ -83,7 +88,16 @@ namespace FoodShelterAppC_.Controllers
 
             foreach (var error in result.Errors)
             {
-                ModelState.AddModelError(string.Empty, error.Description);
+                string errorMessage = error.Code switch
+                {
+                    "PasswordRequiresDigit" => "Password must contain at least one number.",
+                    "PasswordRequiresLower" => "Password must contain at least one lowercase letter.",
+                    "PasswordRequiresUpper" => "Password must contain at least one uppercase letter.",
+                    "PasswordRequiresNonAlphanumeric" => "Password must contain at least one special character.",
+                    "PasswordTooShort" => "Password must be at least 6 characters long.",
+                    _ => error.Description
+                };
+                ModelState.AddModelError(string.Empty, errorMessage);
             }
             return View();
         }

@@ -16,10 +16,10 @@ A comprehensive C# ASP.NET Core application for managing food shelter resources,
 ### Database Setup
 
 The application uses Entity Framework Core with SQL Server. The connection string is configured in:
-```csharp:FoodShelterAppC#/appsettings.json
+csharp:FoodShelterAppC#/appsettings.json
 startLine: 8
 endLine: 10
-```
+
 
 LocalDB is used by default. No additional configuration is needed if you have SQL Server LocalDB installed.
 
@@ -28,7 +28,7 @@ LocalDB is used by default. No additional configuration is needed if you have SQ
 In Visual Studio:
 - Right-click on the project in Solution Explorer
 - Select "Set as Startup Project"
-- Run 'Update-Database' in the package manager console
+- Run ```Update-Database``` in the package manager console
 - Press F5 or click the "Run" button
 
 The application will start and be available at:
@@ -38,10 +38,10 @@ The application will start and be available at:
 
 The application uses SMTP for email notifications. If you want, you can update the email settings in appsettings.json(a burner email it being used for testing):
 
-```json:FoodShelterAppC#/appsettings.json
+json:FoodShelterAppC#/appsettings.json
 startLine: 11
 endLine: 17
-```
+
 
 Replace the credentials with your own SMTP server details if you want to use another email.
 
