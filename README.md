@@ -28,7 +28,7 @@ LocalDB is used by default. No additional configuration is needed if you have SQ
 In Visual Studio:
 - Right-click on the project in Solution Explorer
 - Select "Set as Startup Project"
-- Run 'Update-Database' in the package manager console
+- Run ```Update-Database``` in the package manager console
 - Press F5 or click the "Run" button
 
 The application will start and be available at:
